@@ -5,6 +5,8 @@ This project implements an AI coding agent that automatically generates custom p
 
 
 **🚀 Features**
+
+
 Agentic workflow: plan → code → test → self-fix (≤ 3 attempts).
 CLI runnable: python agent.py --target <bank>
 Custom parser generation: writes to custom_parsers/<bank>_parser.py
@@ -14,6 +16,8 @@ Self-contained: synthetic ICICI and SBI sample data included.
 
 
 **🛠️ Project Structure**
+
+
 agent_as_coder/
 ├── agent.py                 # Main agent loop
 ├── custom_parsers/          # Auto-generated parsers live here
@@ -34,11 +38,15 @@ agent_as_coder/
 
 
 **📦 Installation**
+
+
 pip install -r requirements.txt
 Or, if running in Google Colab: all dependencies are installed automatically in the first cell.
 
 
 **▶️ Usage**
+
+
 1. Generate parser for ICICI
 python agent.py --target icici
 2. Generate parser for SBI
@@ -48,6 +56,8 @@ pytest -q
 
 
 **✅ Parser Contract**
+
+
 Each generated parser implements:
 def parse(pdf_path: str) -> pd.DataFrame:
     """
@@ -60,6 +70,8 @@ pd.testing.assert_frame_equal(got, expected, check_dtype=False)
 
 
 **📊 Agent Architecture**
+
+
 flowchart TD
     A[Start agent.py] --> B[Plan step: identify bank & task]
     B --> C[Generate parser code in custom_parsers/]
@@ -72,6 +84,8 @@ flowchart TD
 
     
 **📋 Deliverables Checklist**
+
+
 ✅ T1: agent.py with loop (plan → generate → test → self-fix).
 ✅ T2: CLI support --target <bank>.
 ✅ T3: Parser contract implemented.
